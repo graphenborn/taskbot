@@ -1,0 +1,20 @@
+[Unit]
+Description=Telegram Bot Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/my_telegram_bot
+Environment="PATH=/root/my_telegram_bot/venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/root/my_telegram_bot/venv/bin/python /root/my_telegram_bot/bot.py
+Restart=always
+RestartSec=10
+
+# Security settings
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=telegram-bot
+
+[Install]
+WantedBy=multi-user.target
