@@ -58,13 +58,25 @@ my_telegram_bot/
 2. Перейдите в раздел Keys
 3. Создайте новый API ключ
 
-### 3. Получите свой Telegram ID
+### 3. (Опционально) Получите OpenAI API ключ для распознавания голоса
+
+Если хотите использовать голосовые сообщения, получите ключ OpenAI для Whisper API:
+
+1. Зарегистрируйтесь на [platform.openai.com](https://platform.openai.com/)
+2. Перейдите в раздел [API Keys](https://platform.openai.com/api-keys)
+3. Нажмите "Create new secret key"
+4. Скопируйте ключ (он показывается только один раз!)
+5. Пополните баланс (минимум $5) в разделе [Billing](https://platform.openai.com/account/billing)
+
+> **Важно:** Без OpenAI API ключа голосовые сообщения работать не будут, но текстовые - да.
+
+### 4. Получите свой Telegram ID
 
 Используйте [@userinfobot](https://t.me/userinfobot):
 1. Напишите боту `/start`
 2. Скопируйте ваш ID
 
-### 4. Настройте переменные окружения
+### 5. Настройте переменные окружения
 
 Отредактируйте файл `.env`:
 
@@ -89,14 +101,14 @@ DATABASE_URL=sqlite+aiosqlite:///./bot.db
 
 > **Примечание:** `OPENAI_API_KEY` нужен только для распознавания голосовых сообщений через Whisper API. Если не используете голосовые сообщения, можно не указывать.
 
-### 5. Установите зависимости
+### 6. Установите зависимости
 
 ```bash
 source venv/bin/activate  # Или venv\Scripts\activate на Windows
 pip install -r requirements.txt
 ```
 
-### 6. Запустите бота
+### 7. Запустите бота
 
 ```bash
 python bot.py
